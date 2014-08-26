@@ -1,5 +1,5 @@
 def mean(vals):
-    """Computes the mean from a list of values."""
+     """Computes the mean from a list of values."""
     try:
         total = float(sum(vals))
         length = len(vals)
@@ -7,7 +7,20 @@ def mean(vals):
         raise TypeError("The list was not numbers.")
     except:
         print "Something unknown happened with the list."
-    return total/length
+    total = float(sum(vals))
+    length = len(vals)
+     return total/length
+
+def median(vals):
+    """Computes the median from a list of values."""
+    def median(vals):
+    vals.sort()
+    length = len(vals)
+    index = length / 2
+    if length % 2 == 0:
+       return mean([vals[index], vals[index - 1]])
+    else:
+       return vals[index]
 
 def mode(vals):
     """Computes the mode from a list of values."""
@@ -15,12 +28,11 @@ def mode(vals):
 
 def std(vals):
     """Computes the standard deviation from a list of values."""
+    # finally, some math
     n = len(vals)
     if n == 0:
         return 0.0
     mu = sum(vals) / n
-    if mu == 1e500:
-        return NotImplemented
     var = 0.0
     for val in vals:
         var = var + (val - mu)**2
