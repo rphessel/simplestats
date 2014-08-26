@@ -1,8 +1,15 @@
 def mean(vals):
-    """Computes the mean from a list of values."""
+     """Computes the mean from a list of values."""
+    try:
+        total = float(sum(vals))
+        length = len(vals)
+    except TypeError:
+        raise TypeError("The list was not numbers.")
+    except:
+        print "Something unknown happened with the list."
     total = float(sum(vals))
     length = len(vals)
-    return total/length
+     return total/length
 
 def median(vals):
     """Computes the median from a list of values."""
